@@ -1,0 +1,65 @@
+
+filteredTrainingData = [data for data in trainingData if data['helpful']['outOf'] > 40 and 
+                        itemNumReview[data['itemID']] > 0]
+def generateFeature(dataset):
+    return np.vstack([[1]*len(dataset), for data in dataset]],
+                      [np.sum([c == '?' for c in data['reviewText']])*1./len(data['reviewText'].split('.')) for data in dataset],
+                      [data['rating'] for data in dataset],
+                      [data['rating']**2 for data in dataset]
+                     ]).T
+validation MAE = 0.18238133327187553
+training MAE = 0.18303241262933009
+test MAE = 0.17563
+
+
+filteredTrainingData = [data for data in trainingData if data['helpful']['outOf'] > 40 and 
+                        itemNumReview[data['itemID']] > 0]
+def generateFeature(dataset):
+    return np.vstack([[1]*len(dataset), for data in dataset]],
+                      [np.sum([c == '?' for c in data['reviewText']])*1./len(data['reviewText'].split('.')) for data in dataset],
+                      [data['rating'] for data in dataset]
+                     ]).T
+validation MAE = 0.18233817598198004
+training MAE = 0.18368907450783906
+test MAE = 
+
+filteredTrainingData = [data for data in trainingData if data['helpful']['outOf'] > 40 and 
+                        itemNumReview[data['itemID']] > 0]
+def generateFeature(dataset):
+    return np.vstack([[1]*len(dataset), for data in dataset]],
+                      [np.sum([c == '?' for c in data['reviewText']])*1./len(data['reviewText'].split('.')) for data in dataset],
+                      [userNumReview[data['reviewerID']] for data in dataset],
+                      [data['rating'] for data in dataset]
+                     ]).T
+array([  8.21338258e-01,  -2.71148767e-01,  -2.77664109e-04,
+         2.64088947e-02])
+validation MAE = 0.18228922675484605
+training MAE = 0.18367593269062366
+test MAE = 
+
+filteredTrainingData = [data for data in trainingData if data['helpful']['outOf'] > 40 and 
+                        itemNumReview[data['itemID']] > 0]
+def generateFeature(dataset):
+    return np.vstack([[1]*len(dataset), for data in dataset]],
+                      [np.sum([c == '?' for c in data['reviewText']])*1./len(data['reviewText'].split('.')) for data in dataset],
+                      [userNumReview[data['reviewerID']]*data['rating'] for data in dataset],
+                      [data['rating'] for data in dataset]
+                     ]).T
+array([  8.19574783e-01,  -2.70410095e-01,  -1.99749879e-04,
+         2.74773377e-02])
+validation MAE = 0.18220177135057636
+training MAE = 0.18363875158432941
+test MAE = 0.17202
+
+def generateFeature(dataset):
+    return np.vstack([[1]*len(dataset), 
+                      [np.sum([c == '?' for c in data['reviewText']])*1./len(data['reviewText'].split('.')) for data in dataset],
+                      [userNumReview[data['reviewerID']]*data['rating'] for data in dataset],
+                      [data['helpful']['outOf'] for data in dataset],
+                      [data['rating'] for data in dataset]
+                     ]).T
+array([  8.28256303e-01,  -2.70913513e-01,  -2.08596215e-04,
+        -1.04727190e-04,   2.75160111e-02])
+validation MAE = 0.182099414745446
+training MAE = 0.1833219892576195
+test MAE = 0.17183
